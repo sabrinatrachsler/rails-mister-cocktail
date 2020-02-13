@@ -2,16 +2,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="card-category" >
       <h1><%= @cocktail.name %></h1>
+      <% @cocktail.doses.each do |i| %>
+      <h3><%= i.ingredient.name.capitalize %> - <%= i.description %></h3>
+      <% end %>
       <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th scope="row">Ingredients</th>
-            <td><%= @cocktail.ingredients%></td>
-          </tr>
-        </tbody>
-      </table>
+      <%= link_to "Add a new Ingredient", new_cocktail_dose_path(params[:id]), class: 'btn btn-primary' %>
       <%= link_to "See all cocktails", cocktails_path %>
-    </div>
   </div>
 </div>
